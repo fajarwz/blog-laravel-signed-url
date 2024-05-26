@@ -12,3 +12,6 @@ Route::get('reset-password/send-link', [UserController::class, 'sendResetPasswor
 
 Route::middleware('signed')->get('reset-password/{userId}', [UserController::class, 'index'])
     ->name('reset-password.index');
+
+Route::middleware('signed')->post('reset-password/{userId}', [UserController::class, 'resetPassword'])
+    ->name('reset-password.index');
