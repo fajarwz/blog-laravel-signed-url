@@ -11,7 +11,7 @@ class UserController extends Controller
     public function sendResetPasswordLink()
     {
         $userId = 4;
-        $timeLimit = now()->addMinutes(1);
+        $timeLimit = now()->addMinutes(60);
 
         $link = URL::temporarySignedRoute(
             'reset-password.index',
@@ -54,6 +54,6 @@ class UserController extends Controller
         // remove the url from cache after successful reset
         Cache::forget($signedUrlCacheKey);
 
-        dd('reset password successful');
+        dd('password reset was successful');
     }
 }
